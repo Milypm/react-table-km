@@ -10,7 +10,7 @@ Basic web application using a local (mock) API that renders a table with the fet
 
 ## How To Run It (Locally)
 1. It's recommended to use Git's latest version
-2. Clone or download the repo: [react-table-km]() to your local system
+2. Clone or download the repo: [react-table-km](https://github.com/Milypm/react-table-km/tree/development) to your local system
     - Click on the "Code" green button and copy 'HTTPS URL'
     - **On an empty folder** on your local system, open the command-line: `git clone 'HTTPS URL'`
 3. Go to the repo root directory
