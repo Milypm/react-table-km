@@ -1,0 +1,46 @@
+.app {
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+}
+
+.message {
+  margin-top: 200px;
+}
+
+.table {
+  box-sizing: border-box;
+  width: 100%;
+  background: rgb(65, 63, 63);
+  color: rgb(201, 193, 193);
+  border: 1px solid rgb(201, 193, 193);
+}
+
+.table thead {
+  height: 50px;
+  font-size: 20px;
+  color: rgb(188, 150, 236);
+}
+
+.table-headers th,
+.table-datarows td {
+  border-bottom: 1px solid rgb(201, 193, 193);
+  border-right: 1px solid rgb(201, 193, 193);
+}
+
+.table-datarows td {
+  height: 30px;
+}
+
+.sort-btn {
+  border: none;
+  text-decoration: underline;
+  padding: 5px 10px;
+  color: rgb(122, 116, 128);
+  background: transparent;
+}
+
+.sort-btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
