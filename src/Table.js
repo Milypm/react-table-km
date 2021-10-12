@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './main.css';
 
 const Table = (props) => {
-  const { fetched } = props;
+  const { fetched, keysNames } = props;
   const [data, setData] = useState(fetched);
   const [sortBy, setSortBy] = useState('');
   const [sortOrder, setSortOrder] = useState('');
@@ -42,46 +42,43 @@ const Table = (props) => {
       </button>
     )
   };
+  const extraCol = (val) => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const age = year - parseInt(val.slice(0, 4));
+    return age;
+  };
+  let prev;
   return (
     <table className="table">
       <thead>
         <tr className="table-headers">
-          <th>
-            Name
-            {btn('name')}
-          </th>
-          <th>
-            Address
-            {btn('address')}
-          </th>
-          <th>
-            City
-            {btn('city')}
-          </th>
-          <th>
-            Region
-            {btn('region')}
-          </th>
-          <th>
-            Country
-            {btn('country')}
-          </th>
-          <th>
-            Birthday
-            {btn('birthday')}
-          </th>
+          {
+            keysNames.map((name) => (
+              name !== 'age'
+                ? 
+                  (
+                    <th key={name}>
+                      {name}
+                      {btn(name)}
+                    </th>
+                  )
+                : <th key={name}>{name}</th>
+            ))
+          }
         </tr>
       </thead>
       <tbody className="table-body">
         {
-          data.map((obj) => (
+          data.map((obj) => (            
             <tr key={obj.name} className="table-datarows">
-              <td>{obj.name}</td>
-              <td>{obj.address}</td>
-              <td>{obj.city}</td>
-              <td>{obj.region}</td>
-              <td>{obj.country}</td>
-              <td>{obj.birthday}</td>
+              {
+                keysNames.map((name) => {
+                  const rend = name === 'age' ? <td>{extraCol(prev)}</td> : <td>{obj[name]}</td>
+                  prev = obj[name];
+                  return rend;
+                })
+              }
             </tr>
           ))
         }
